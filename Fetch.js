@@ -71,12 +71,12 @@ class Fetch {
   
       resource = coerceValueToString(resource);
   
-      resource = options.urlPrefix + resource;
+      resource = options.prefix + resource;
       
     }
     
     
-    const request = fetch(url, options);
+    const request = fetch(resource, options);
     
     let resp = await request;
     
