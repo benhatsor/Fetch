@@ -50,7 +50,7 @@ If `resource` is a string or is [string-coercible], `prefix` will be prepended t
 
 #### `onlyBody`
 
-Returns only `Response.body`.
+Return only `Response.body`.
 
 
 ## Additional Options
