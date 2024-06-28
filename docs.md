@@ -50,5 +50,5 @@ Accessed via `Fetch.options`.
 
 ### `defaultResponseType`
 
-The response type of `Fetch.{method}(url, ?options)`.
+The response type of `Fetch.{method}(...)`.
 
