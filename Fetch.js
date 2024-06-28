@@ -18,7 +18,7 @@ class Fetch {
   
   constructor() {
     
-    { defaultRespType } = this.options;
+    const { defaultRespType } = this.options;
     
     this.methods.forEach(method => {
       
