@@ -45,7 +45,7 @@ await Fetch.{method}.{?responseType}(url, ?options);
 Returns only `Response.body`.
 
 
-## Options
+## Additional Options
 
 Accessed via `Fetch.options`.
 
