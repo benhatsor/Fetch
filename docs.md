@@ -3,17 +3,6 @@
 Improved `fetch`.
 
 
-## API
-
-```JS
-await Fetch.{method}.{?responseType}(url, ?options);
-```
-
-### `options.onlyBody`
-
-Returns only `Response.body`.
-
-
 ## Examples
 
 ```JS
@@ -43,6 +32,18 @@ Response {
 }
 */
 ```
+
+
+## API
+
+```JS
+await Fetch.{method}.{?responseType}(url, ?options);
+```
+
+### `options.onlyBody`
+
+Returns only `Response.body`.
+
 
 ## Options
 
