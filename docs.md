@@ -2,6 +2,18 @@
 
 Improved `fetch`.
 
+
+## API
+
+```JS
+await Fetch.{method}.{?responseType}(url, ?options);
+```
+
+### `options.onlyBody`
+
+Returns only `Response.body`.
+
+
 ## Examples
 
 ```JS
@@ -34,9 +46,9 @@ Response {
 
 ## Options
 
-That's `Fetch.options`.
+Accessed via `Fetch.options`.
 
 ### `defaultResponseType`
 
-Changes the response type of `Fetch.{method}`.
+Changes the response type of `Fetch.{method}(...)`.
 
