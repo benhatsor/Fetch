@@ -47,7 +47,7 @@ Returns only `Response.body`.
 
 ## Additional Options
 
-Accessed via `Fetch.options`.
+Accessed from `Fetch.options`.
 
 ### `defaultResponseType`
 
