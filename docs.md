@@ -40,7 +40,11 @@ Response {
 await Fetch.{method}.{?responseType}(url, ?options);
 ```
 
-### `options.onlyBody`
+### `options`
+
+`fetch` options, with:
+
+#### `onlyBody`
 
 Returns only `Response.body`.
 
