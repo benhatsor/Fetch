@@ -22,6 +22,8 @@ class Fetch {
     
     this.methods.forEach(method => {
       
+      method = method.toLowerCase();
+      
       // define methods for default resp type
       this[method] =
         this.getMethod(
@@ -45,6 +47,8 @@ class Fetch {
   }
   
   getMethod(method, respType) {
+    
+    method = method.toUpperCase();
     
     return ((resource, options = {}) => {
       
@@ -117,5 +121,5 @@ class Fetch {
   
 }
 
-window.Fetch = new Fetch();
+Fetch = new Fetch();
 
