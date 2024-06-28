@@ -37,12 +37,16 @@ Response {
 ## API
 
 ```JS
-await Fetch.{method}.{?responseType}(url, ?options);
+await Fetch.{method}.{?responseType}(resource, ?options);
 ```
 
 ### `options`
 
 `fetch` options, with:
+
+#### `prefix`
+
+If `resource` is a string or is [string-coercible], `prefix` will be prepended to its coerced value.
 
 #### `onlyBody`
 
@@ -56,4 +60,7 @@ Accessed via `Fetch.options`.
 ### `defaultResponseType`
 
 The response type of `Fetch.{method}(...)`.
+
+
+[string-coercible]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion
 
