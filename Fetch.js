@@ -60,7 +60,7 @@ class Fetch {
   
   async function fetch(resource, options) {
   
-    { isString, coerceValueToString } = this.util;
+    const { isString, coerceValueToString } = this.util;
     
     
     if (isString(resource)) {
