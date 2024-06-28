@@ -46,7 +46,7 @@ class Fetch {
   
   getMethod(method, respType) {
     
-    return ((resource, options = {}) => {
+    return (async (resource, options = {}) => {
       
       options.method = method;
       options.respType = respType;
