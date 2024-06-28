@@ -1,5 +1,7 @@
 
-
+/*
+ * Fetch
+ */
 
 class Fetch {
   
@@ -117,8 +119,3 @@ class Fetch {
 
 window.Fetch = new Fetch();
 
-
-
-
-  const api = 'https://api.letterboxd.com/api/v0/';
-  
