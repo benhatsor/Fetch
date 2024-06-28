@@ -51,14 +51,14 @@ class Fetch {
       options.method = method;
       options.respType = respType;
       
-      this.fetchRequest(resource, options);
+      this.fetch(resource, options);
       
     });
     
   }
   
   
-  async function fetchRequest(resource, options) {
+  async fetch(resource, options) {
   
     const { isString, coerceValueToString } = this.util;
     
