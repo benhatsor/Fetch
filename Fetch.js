@@ -91,6 +91,10 @@ class Fetch {
       
       resp.text = await resp.text();
       
+    } else if (options.respType === 'stream') {
+      
+      resp.stream = resp.body;
+      
     }
     
     
@@ -104,9 +108,11 @@ class Fetch {
         
         return resp.text;
         
-      }
+      } else if (options.respType === 'stream') {
       
-      return resp.body;
+        return resp.stream;
+        
+      }
       
     }
     
