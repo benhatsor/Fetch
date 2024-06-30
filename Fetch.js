@@ -67,7 +67,7 @@ class Fetch {
     const { isString, coerceValueToString } = this.util;
     
     
-    if (isString(resource)) {
+    if (isString(resource) && options.prefix) {
   
       resource = coerceValueToString(resource);
   
