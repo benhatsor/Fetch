@@ -79,20 +79,32 @@ class Fetch {
     const request = fetch(resource, options);
     
     let resp = await request;
+      
+    resp = new Response(resp);
     
     
     if (options.respType === 'json') {
       
-      resp.body = await resp.json();
+      resp.json = await resp.json();
       
     } else if (options.respType === 'text') {
       
-      resp.body = await resp.text();
+      resp.text = await resp.text();
       
     }
     
     
     if (options.onlyBody) {
+      
+      if (options.respType === 'json') {
+      
+        return resp.json;
+        
+      } else if (options.respType === 'text') {
+        
+        return resp.text;
+        
+      }
       
       return resp.body;
       
