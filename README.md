@@ -40,6 +40,12 @@ Response {
 await Fetch.{method}.{?responseType}(resource, ?options);
 ```
 
+### `responseType`
+
+Sets `Response.{responseType}` to `Response.{responseType}()` (unless it's `stream`).
+
+Defaults to [`defaultResponseType`](#defaultResponseType).
+
 ### `options`
 
 `fetch` options, with:
@@ -50,7 +56,7 @@ If `resource` is a string or is [string-coercible], `prefix` will be prepended t
 
 #### `onlyBody`
 
-Return only `Response.body`.
+Return only `Response.{responseType}()`.
 
 
 ## Additional Options
