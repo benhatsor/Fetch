@@ -1,6 +1,8 @@
 # Fetch
 
 Improved `fetch`.
+- Simpler API
+- Logs request error descriptors
 
 
 ## Examples
