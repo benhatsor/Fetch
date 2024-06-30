@@ -42,7 +42,7 @@ await Fetch.{method}.{?responseType}(resource, ?options);
 
 ### `responseType`
 
-Sets `Response.{responseType}` to `Response.{responseType}()` (unless it's `stream`).
+Sets `Response.{responseType}` to `Response.{responseType}()` (`Response.stream` is set to `Response.body`).
 
 Defaults to [`defaultResponseType`](#defaultResponseType).
 
