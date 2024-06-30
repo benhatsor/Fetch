@@ -2,7 +2,7 @@
 
 Improved `fetch`.
 - Simpler API
-- Logs descriptors for request error codes
+- Logs the descriptors for request error codes
 
 
 ## Examples
