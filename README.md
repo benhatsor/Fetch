@@ -37,14 +37,20 @@ Response {
 ## API
 
 ```JS
-await Fetch.{method}.{?responseType}(resource, ?options);
+const response = await Fetch.{method}.{?responseType}(resource, ?options);
 ```
+
+### `method`
+
+A lowercased [HTTP request method].
 
 ### `responseType`
 
-Sets `Response.{responseType}` to `Response.{responseType}()` (`Response.stream` is set to `Response.body`).
+Sets `response.responseType` to the respective parsed response.
 
-Defaults to [`defaultResponseType`](#defaultResponseType).
+Can be either `json` (default), `text`, or `stream`.
+
+> Change the default with `Fetch.options.defaultResponseType`.
 
 ### `options`
 
@@ -56,17 +62,9 @@ If `resource` is a string or is [string-coercible], `prefix` will be prepended t
 
 #### `onlyBody`
 
-Return only `Response.{responseType}()`.
+Return only `response.{responseType}`.
 
 
-## Additional Options
-
-Accessed via `Fetch.options`.
-
-### `defaultResponseType`
-
-The response type of `Fetch.{method}(...)`.
-
-
+[HTTP request method]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 [string-coercible]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion
 
