@@ -83,7 +83,7 @@ class Fetch {
     
     if (!resp.ok) {
       
-      const descriptor = this.getStatusCodeDescriptor(resp.statusCode);
+      const descriptor = this.getStatusCodeDescriptor(resp.status);
       
       if (descriptor) {
       
