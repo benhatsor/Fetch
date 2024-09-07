@@ -93,7 +93,7 @@ class Fetch {
       if (isValidFunction(respType, resp)) {
 
         const parse = resp[respType];
-        const body = await parse();
+        const body = await parse.call(resp);
         
         setReadOnlyProp(resp, 'body', body);
 
