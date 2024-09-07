@@ -5,9 +5,7 @@ Improved `fetch`.
 ## Examples
 
 ```JS
-await Fetch.get('/movies', {
-  prefix: 'https://api.example.com'
-});
+const resp = await Fetch.get('https://api.example.com/movies');
 
 /*
 [{
@@ -19,7 +17,7 @@ await Fetch.get('/movies', {
 ```
 
 ```JS
-await Fetch.get('/movies/1/desc', {
+const resp = await Fetch.get('/movies/1/desc', {
   prefix: 'https://api.example.com',
   respType: 'text',
   onlyBody: false
