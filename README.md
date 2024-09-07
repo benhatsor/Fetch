@@ -1,16 +1,12 @@
-# Fetch
+# Request
 
 Improved `fetch`.
-- Simpler API
-- Logs the descriptors of request error codes
-
 
 ## Examples
 
 ```JS
-await Fetch.get('/movies', {
-  prefix: 'https://api.example.com',
-  onlyBody: true
+await Request.get('/movies', {
+  prefix: 'https://api.example.com'
 });
 
 /*
@@ -23,13 +19,16 @@ await Fetch.get('/movies', {
 ```
 
 ```JS
-await Fetch.get.text('/movies/1/desc', {
-  prefix: 'https://api.example.com'
+await Request.get.text('/movies/1/desc', {
+  prefix: 'https://api.example.com',
+  onlyBody: false
 });
 
 /*
 Response {
   text: 'This is an example movie.',
+  ok: true,
+  status: 200,
   ...
 }
 */
@@ -39,7 +38,7 @@ Response {
 ## API
 
 ```JS
-const response = await Fetch.{method}.{?responseType}(resource, ?options);
+const response = await Request.{method}.{?responseType}(resource, ?options);
 ```
 
 ### `method`
@@ -48,15 +47,15 @@ A lowercased [HTTP request method].
 
 ### `responseType`
 
-Sets `response.responseType` to the respective parsed response.
+Sets `response.body` to the respective parsed response.
 
 Can be either `json` (default), `text`, or `stream`.
 
-> Change the default with `Fetch.options.defaultResponseType`.
+> Change the default with `Request.options.defaultResponseType`.
 
 ### `options`
 
-`fetch` options, with:
+`Request` options, with:
 
 #### `prefix`
 
@@ -64,7 +63,9 @@ If `resource` is a string or is [string-coercible], `prefix` will be prepended t
 
 #### `onlyBody`
 
-Return only `response.{responseType}`.
+Return only `response.body`.
+
+Default: `true`.
 
 
 [HTTP request method]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
