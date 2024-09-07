@@ -44,6 +44,10 @@ const resp = await Fetch.method(resource, ?options);
 
 A lowercased [HTTP request method].
 
+### `options`
+
+[`fetch` options], plus:
+
 ### `responseType`
 
 [Available types] (plus `readableStream`).
@@ -57,21 +61,17 @@ Default: `['json', 'text']`.
 
 > Change the default with `Fetch.fetchOptions.defaultResponseType`.
 
-### `options`
+#### `prefix`
 
-[`fetch` options], plus:
+A prefix to prepend to `resource`.
+
+> Will only be prepended if `resource` and `prefix` are both either strings or [string-coercible].
 
 #### `onlyBody`
 
 Return only `resp.body`.
 
 Default: `true`.
-
-#### `prefix`
-
-A prefix to prepend to `resource`.
-
-> Will only be prepended if `resource` and `prefix` are both either strings or [string-coercible].
 
 
 [`fetch`]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
