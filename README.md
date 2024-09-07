@@ -26,7 +26,7 @@ await Fetch.get.text('/movies/1/desc', {
 
 /*
 Response {
-  text: 'This is an example movie.',
+  body: 'This is an example movie.',
   ok: true,
   status: 200,
   ...
