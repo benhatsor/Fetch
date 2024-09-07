@@ -49,7 +49,9 @@ A lowercased [HTTP request method].
 
 Sets `response.body` to the respective parsed response.
 
-Can be either `json` (default), `text`, or `stream`.
+Can be `json`, `text`, or `stream`.
+
+Default: `json`.
 
 > Change the default with `Request.options.defaultResponseType`.
 
