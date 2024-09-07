@@ -46,13 +46,13 @@ A lowercased [HTTP request method].
 
 ### `respType`
 
+[Available types]
+
 Attempts to parse `resp` to the provided type(s), then sets `resp.body` to the result.
 
 Can be either a string or an array of multiple strings.
 
 If multiple strings are provided, they'll be used as fallbacks for when parsing fails.
-
-[Available types]
 
 Default: `['json', 'text']`.
 
