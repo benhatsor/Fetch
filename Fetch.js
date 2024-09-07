@@ -23,7 +23,7 @@ class Fetch {
     this.methods.forEach(method => {
       
       method = method.toLowerCase();
-      debugger;
+
       // define methods for default resp type
       this[method] =
         this.getMethod(
