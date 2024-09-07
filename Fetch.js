@@ -81,19 +81,6 @@ class Fetch {
     let resp = await request;
     
     
-    if (!resp.ok) {
-      
-      const descriptor = this.getStatusCodeDescriptor(resp.status);
-      
-      if (descriptor) {
-      
-        console.error('Request failed: ' + descriptor);
-        
-      }
-      
-    }
-    
-    
     if (options.respType === 'json') {
 
       const body = await resp.json();
@@ -126,7 +113,7 @@ class Fetch {
     setReadOnlyProp(obj, prop, value) {
       
       Object.defineProperty(obj, prop, {
-        value
+        value: value
       });
       
     },
