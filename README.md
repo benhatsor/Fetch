@@ -59,15 +59,15 @@ Default: `json`.
 
 `Request` options, with:
 
-#### `prefix`
-
-If `resource` is a string or is [string-coercible], `prefix` will be prepended to its coerced value.
-
 #### `onlyBody`
 
 Return only `response.body`.
 
 Default: `true`.
+
+#### `prefix`
+
+If `resource` is a string or is [string-coercible], `prefix` will be prepended to its coerced value.
 
 
 [HTTP request method]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
