@@ -81,19 +81,7 @@ class Fetch {
     let resp = await request;
     
     
-    if (options.respType === 'json') {
-
-      const body = await resp.json();
-      
-      setReadOnlyProp(resp, 'body', body);
-      
-    } else if (options.respType === 'text') {
-      
-      const body = await resp.text();
-      
-      setReadOnlyProp(resp, 'body', body);
-      
-    }
+    this.setRespBody(resp, options);
     
     
     if (options.onlyBody !== false) {
@@ -106,6 +94,36 @@ class Fetch {
     return resp;
     
   }
+
+
+  setRespBody(resp, options) {
+
+    if (options.respType === 'stream') return;
+
+    if (options.respType in resp &&
+        typeof resp[options.respType] === 'function') {
+    
+      const parse = resp[options.respType];
+    
+      const body = await parse();
+
+    } else if (this.options.defaultRespType in resp &&
+               typeof resp[this.options.defaultRespType] === 'function') {
+
+      const parse = resp[this.options.defaultRespType];
+    
+      const body = await parse();
+
+    } else {
+
+      return;
+      
+    }
+    
+    setReadOnlyProp(resp, 'body', body);
+
+  }
+  
   
   
   util = {
