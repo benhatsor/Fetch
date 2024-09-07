@@ -48,11 +48,11 @@ A lowercased [HTTP request method].
 
 Attempts to parse `resp` to the provided type(s), then sets `resp.body` to the result.
 
-[Available types.](https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods)
-
 Can be either a string or an array of multiple strings.
 
 If multiple strings are provided, they will act as fallbacks for when parsing fails.
+
+[Available types.](https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods)
 
 Default: `['json', 'text']`.
 
