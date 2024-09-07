@@ -15,9 +15,7 @@ class Fetch {
   
   
   constructor() {
-    
-    const { defaultRespType } = this.options;
-    
+        
     this.methods.forEach(method => {
       
       method = method.toLowerCase();
