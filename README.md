@@ -26,8 +26,8 @@ const resp = await Fetch.get('/movies/1/desc', {
 /*
 Response {
   body: 'This is an example movie.',
-  ok: true,
   status: 200,
+  ok: true,
   ...
 }
 */
