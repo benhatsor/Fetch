@@ -37,7 +37,7 @@ Response {
 ## API
 
 ```JS
-const resp = await Fetch.{method}.{?responseType}(resource, ?options);
+const resp = await Fetch.{method}(resource, ?options);
 ```
 
 ### `method`
