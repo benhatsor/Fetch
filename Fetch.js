@@ -6,7 +6,7 @@
 class Fetch {
   
   fetchOptions = {
-    defaultRespType: ['json', 'text']
+    defaultResponseType: ['json', 'text']
   };
   
   
@@ -65,13 +65,13 @@ class Fetch {
     let resp = await request;
     
 
-    if ('respType' in options) {
+    if ('responseType' in options) {
 
-      await this.parseRespBody(resp, options.respType);
+      await this.parseRespBody(resp, options.responseType);
 
     } else {
       
-      await this.parseRespBody(resp, this.fetchOptions.defaultRespType);
+      await this.parseRespBody(resp, this.fetchOptions.defaultResponseType);
       
     }
     
@@ -88,16 +88,16 @@ class Fetch {
   }
 
 
-  async parseRespBody(resp, respType) {
+  async parseRespBody(resp, responseType) {
 
     const { isValidFunction, setReadOnlyProp } = this.util;
 
 
-    if (!Array.isArray(respType)) {
+    if (!Array.isArray(responseType)) {
       
-      if (isValidFunction(respType, resp)) {
+      if (isValidFunction(responseType, resp)) {
 
-        const parse = resp[respType];
+        const parse = resp[responseType];
         
         let body;
         
@@ -117,15 +117,15 @@ class Fetch {
         
       }
 
-    } else if (respType.length !== 0) {
+    } else if (responseType.length !== 0) {
 
-      const didParseBody = await this.parseRespBody(resp, respType[0]);
+      const didParseBody = await this.parseRespBody(resp, responseType[0]);
 
       if (!didParseBody) {
       
-        respType.shift();
+        responseType.shift();
 
-        return await this.parseRespBody(resp, respType);
+        return await this.parseRespBody(resp, responseType);
 
       }
 
