@@ -19,7 +19,7 @@ const resp = await Fetch.get('https://api.example.com/movies');
 ```JS
 const resp = await Fetch.get('/movies/1/desc', {
   prefix: 'https://api.example.com',
-  respType: 'text',
+  responseType: 'text',
   onlyBody: false
 });
 
@@ -37,16 +37,16 @@ Response {
 ## API
 
 ```JS
-const resp = await Fetch.{method}.{?respType}(resource, ?options);
+const resp = await Fetch.{method}.{?responseType}(resource, ?options);
 ```
 
 ### `method`
 
 A lowercased [HTTP request method].
 
-### `respType`
+### `responseType`
 
-[Available types] (and `stream`).
+[Available types] (plus `readableStream`).
 
 Attempts to parse `resp` to the provided type(s), then sets `resp.body` to the result.
 
@@ -55,7 +55,7 @@ If multiple strings are provided, they'll be used as fallbacks for when parsing 
 
 Default: `['json', 'text']`.
 
-> Change the default with `Fetch.fetchOptions.defaultRespType`.
+> Change the default with `Fetch.fetchOptions.defaultResponseType`.
 
 ### `options`
 
