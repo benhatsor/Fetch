@@ -64,7 +64,7 @@ class Fetch {
   
   async fetch(resource, options) {
   
-    const { isString, coerceValueToString } = this.util;
+    const { setReadOnlyProp, isString, coerceValueToString } = this.util;
     
     
     if (isString(resource) && options.prefix) {
@@ -95,12 +95,16 @@ class Fetch {
     
     
     if (options.respType === 'json') {
+
+      const body = await resp.json();
       
-      resp.body = await resp.json();
+      setReadOnlyProp(resp, 'body', body);
       
     } else if (options.respType === 'text') {
       
-      resp.body = await resp.text();
+      const body = await resp.text();
+      
+      setReadOnlyProp(resp, 'body', body);
       
     }
     
@@ -118,6 +122,14 @@ class Fetch {
   
   
   util = {
+
+    setReadOnlyProp(obj, prop, value) {
+      
+      Object.defineProperty(obj, prop, {
+        value
+      });
+      
+    },
     
     isString(x) {
       return Object.prototype.toString.call(x) === '[object String]'
