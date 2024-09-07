@@ -6,7 +6,7 @@
 class Fetch {
   
   options = {
-    defaultRespType: 'json'
+    defaultRespType: ['json', 'text']
   };
   
   
@@ -45,7 +45,7 @@ class Fetch {
   
   async fetch(resource, options) {
   
-    const { setReadOnlyProp, isString, coerceValueToString } = this.util;
+    const { isString, coerceValueToString } = this.util;
     
     
     if (isString(resource) && options.prefix) {
@@ -62,7 +62,13 @@ class Fetch {
     let resp = await request;
     
     
-    await this.setRespBody(resp, options);
+    const didParseBody = await this.parseRespBody(resp, options.respType);
+
+    if (!didParseBody) {
+      
+      this.parseRespBody(resp, this.options.defaultRespType);
+      
+    }
     
     
     if (options.onlyBody !== false) {
@@ -77,31 +83,37 @@ class Fetch {
   }
 
 
-  async setRespBody(resp, options) {
+  async parseRespBody(resp, respType) {
 
-    if (options.respType === 'stream') return;
+    const { isValidFunction, setReadOnlyProp } = this.util;
 
-    if (options.respType in resp &&
-        typeof resp[options.respType] === 'function') {
-    
-      const parse = resp[options.respType];
-    
-      const body = await parse();
 
-    } else if (this.options.defaultRespType in resp &&
-               typeof resp[this.options.defaultRespType] === 'function') {
-
-      const parse = resp[this.options.defaultRespType];
-    
-      const body = await parse();
-
-    } else {
-
-      return;
+    if (!Array.isArray(respType)) {
       
+      if (isValidFunction(respType, resp)) {
+
+        const parse = resp[respType];
+        const body = await parse();
+        
+        setReadOnlyProp(resp, 'body', body);
+
+        return true;
+        
+      }
+
+    } else if (respType.length !== 0) {
+
+      const didParseBody = this.parseRespBody(resp, respType[0]);
+
+      if (!didParseBody) {
+      
+        respType.shift();
+
+        this.parseRespBody(resp, respType);
+
+      }
+
     }
-    
-    setReadOnlyProp(resp, 'body', body);
 
   }
   
@@ -109,6 +121,13 @@ class Fetch {
   
   util = {
 
+    isValidFunction(prop, obj) {
+
+      return (prop in obj &&
+              typeof obj[prop] === 'function');
+      
+    },
+    
     setReadOnlyProp(obj, prop, value) {
       
       Object.defineProperty(obj, prop, {
