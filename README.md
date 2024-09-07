@@ -46,7 +46,7 @@ A lowercased [HTTP request method].
 
 ### `respType`
 
-Attempts to parse `resp` to the provided type, and sets `resp.body` to the result.
+Attempts to parse `resp` to the provided type(s), then sets `resp.body` to the result.
 
 [Available types.](https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods)
 
