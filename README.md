@@ -69,7 +69,7 @@ A prefix to prepend to `resource`.
 
 #### onlyBody
 
-Return only `resp.body`.
+Whether only `resp.body` should be returned, instead of the entire response.
 
 Default: `true`.
 
