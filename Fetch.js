@@ -5,7 +5,7 @@
 
 class Fetch {
   
-  options = {
+  fetchOptions = {
     defaultRespType: ['json', 'text']
   };
   
