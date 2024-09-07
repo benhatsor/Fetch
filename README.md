@@ -19,8 +19,9 @@ await Fetch.get('/movies', {
 ```
 
 ```JS
-await Fetch.get.text('/movies/1/desc', {
+await Fetch.get('/movies/1/desc', {
   prefix: 'https://api.example.com',
+  respType: 'text',
   onlyBody: false
 });
 
@@ -49,7 +50,7 @@ A lowercased [HTTP request method].
 
 Sets `resp.body` to the respective parsed response body.
 
-Can be `json`, `text`, or `stream`.
+[See the available methods here.](https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods)
 
 Default: `json`.
 
