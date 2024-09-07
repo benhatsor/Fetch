@@ -1,6 +1,6 @@
 # Fetch
 
-Improved `fetch`.
+Upgraded [`fetch`].
 
 ## Examples
 
@@ -50,9 +50,9 @@ Attempts to parse `resp` to the provided type(s), then sets `resp.body` to the r
 
 Can be either a string or an array of multiple strings.
 
-If multiple strings are provided, they will act as fallbacks for when parsing fails.
+If multiple strings are provided, they'll be used as fallbacks for when parsing fails.
 
-[Available types.](https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods)
+[Available types]
 
 Default: `['json', 'text']`.
 
@@ -60,7 +60,7 @@ Default: `['json', 'text']`.
 
 ### `options`
 
-`fetch` options, with:
+[`fetch` options], plus:
 
 #### `onlyBody`
 
@@ -75,6 +75,8 @@ A prefix to prepend to `resource`.
 > Will only be prepended if `resource` and `prefix` are both either strings or [string-coercible].
 
 
+[`fetch`]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 [HTTP request method]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+[Available types]: https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods
+[`fetch` options]: https://developer.mozilla.org/en-US/docs/Web/API/RequestInit
 [string-coercible]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion
-
