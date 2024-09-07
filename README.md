@@ -1,11 +1,11 @@
-# Request
+# Fetch
 
 Improved `fetch`.
 
 ## Examples
 
 ```JS
-await Request.get('/movies', {
+await Fetch.get('/movies', {
   prefix: 'https://api.example.com'
 });
 
@@ -19,7 +19,7 @@ await Request.get('/movies', {
 ```
 
 ```JS
-await Request.get.text('/movies/1/desc', {
+await Fetch.get.text('/movies/1/desc', {
   prefix: 'https://api.example.com',
   onlyBody: false
 });
@@ -38,7 +38,7 @@ Response {
 ## API
 
 ```JS
-const response = await Request.{method}.{?responseType}(resource, ?options);
+const response = await Fetch.{method}.{?responseType}(resource, ?options);
 ```
 
 ### `method`
@@ -53,11 +53,11 @@ Can be `json`, `text`, or `stream`.
 
 Default: `json`.
 
-> Change the default with `Request.options.defaultResponseType`.
+> Change the default with `Fetch.options.defaultResponseType`.
 
 ### `options`
 
-`Request` options, with:
+`fetch` options, with:
 
 #### `onlyBody`
 
