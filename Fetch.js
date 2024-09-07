@@ -61,12 +61,14 @@ class Fetch {
     
     let resp = await request;
     
-    
-    const didParseBody = await this.parseRespBody(resp, options.respType);
 
-    if (!didParseBody) {
+    if ('respType' in options) {
+
+      await this.parseRespBody(resp, options.respType);
+
+    } else {
       
-      this.parseRespBody(resp, this.options.defaultRespType);
+      await this.parseRespBody(resp, this.options.defaultRespType);
       
     }
     
@@ -103,15 +105,17 @@ class Fetch {
 
     } else if (respType.length !== 0) {
 
-      const didParseBody = this.parseRespBody(resp, respType[0]);
+      const didParseBody = await this.parseRespBody(resp, respType[0]);
 
       if (!didParseBody) {
       
         respType.shift();
 
-        this.parseRespBody(resp, respType);
+        return await this.parseRespBody(resp, respType);
 
       }
+
+      return didParseBody;
 
     }
 
