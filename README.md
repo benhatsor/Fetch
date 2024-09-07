@@ -40,15 +40,15 @@ Response {
 const resp = await Fetch.method(resource, ?options);
 ```
 
-### `method`
+### method
 
 A lowercased [HTTP request method].
 
-### `options`
+### options
 
 [`fetch` options], plus:
 
-#### `responseType`
+#### responseType
 
 [Available types] (plus `readableStream`).
 
@@ -61,13 +61,13 @@ Default: `['json', 'text']`.
 
 > Change the default with `Fetch.fetchOptions.defaultResponseType`.
 
-#### `prefix`
+#### prefix
 
 A prefix to prepend to `resource`.
 
 > Will only be prepended if `resource` and `prefix` are both either strings or [string-coercible].
 
-#### `onlyBody`
+#### onlyBody
 
 Return only `resp.body`.
 
