@@ -6,14 +6,14 @@
 class Fetch {
   
   options = {
-    defaultResponseType: 'json'
+    defaultRespType: 'json'
   };
   
   
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   methods = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH'];
   
-  responseTypes = ['json', 'text', 'stream'];
+  respTypes = ['json', 'text', 'stream'];
   
   
   constructor() {
@@ -23,7 +23,7 @@ class Fetch {
     this.methods.forEach(method => {
       
       method = method.toLowerCase();
-      
+      debugger;
       // define methods for default resp type
       this[method] =
         this.getMethod(
@@ -32,7 +32,7 @@ class Fetch {
         );
 
       // define methods for all resp types
-      this.responseTypes.forEach(respType => {
+      this.respTypes.forEach(respType => {
         
         this[method][respType] =
           this.getMethod(
