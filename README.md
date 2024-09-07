@@ -46,7 +46,7 @@ A lowercased [HTTP request method].
 
 ### `respType`
 
-[Available types]
+[Available types].
 
 Attempts to parse `resp` to the provided type(s), then sets `resp.body` to the result.
 
