@@ -70,7 +70,7 @@ Default: `true`.
 
 #### `prefix`
 
-If `resource` is a string or is [string-coercible], `prefix` will be prepended to its coerced value.
+If `resource` and `prefix` are both either strings or [string-coercible], they'll be coerced, and `prefix` will be prepended to `resource`.
 
 
 [HTTP request method]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
