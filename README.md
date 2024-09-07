@@ -48,7 +48,7 @@ A lowercased [HTTP request method].
 
 [`fetch` options], plus:
 
-### `responseType`
+#### `responseType`
 
 [Available types] (plus `readableStream`).
 
