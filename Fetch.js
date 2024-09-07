@@ -5,7 +5,7 @@
 
 class Fetch {
   
-  fetchOptions = {
+  globOptions = {
     defaultRespType: ['json', 'text']
   };
   
@@ -68,7 +68,7 @@ class Fetch {
 
     } else {
       
-      await this.parseRespBody(resp, this.options.defaultRespType);
+      await this.parseRespBody(resp, this.globOptions.defaultRespType);
       
     }
     
