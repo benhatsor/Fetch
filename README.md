@@ -58,7 +58,7 @@ If multiple method strings are provided, they will act as fallbacks.
 
 Default: `['json', 'text']`.
 
-> Change the default with `Fetch.options.defaultRespType`.
+> Change the default with `Fetch.fetchOptions.defaultRespType`.
 
 ### `options`
 
