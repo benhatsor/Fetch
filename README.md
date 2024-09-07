@@ -38,22 +38,22 @@ Response {
 ## API
 
 ```JS
-const response = await Fetch.{method}.{?responseType}(resource, ?options);
+const resp = await Fetch.{method}.{?respType}(resource, ?options);
 ```
 
 ### `method`
 
 A lowercased [HTTP request method].
 
-### `responseType`
+### `respType`
 
-Sets `response.body` to the respective parsed response.
+Sets `resp.body` to the respective parsed response body.
 
 Can be `json`, `text`, or `stream`.
 
 Default: `json`.
 
-> Change the default with `Fetch.options.defaultResponseType`.
+> Change the default with `Fetch.options.defaultRespType`.
 
 ### `options`
 
@@ -61,7 +61,7 @@ Default: `json`.
 
 #### `onlyBody`
 
-Return only `response.body`.
+Return only `resp.body`.
 
 Default: `true`.
 
