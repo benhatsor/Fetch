@@ -48,11 +48,15 @@ A lowercased [HTTP request method].
 
 ### `respType`
 
-Sets `resp.body` to the respective parsed response body.
+Parses `resp` with the provided method, and sets `resp.body` to the result.
 
-[See the available methods here.](https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods)
+Can be either a method string or an array of multiple method strings.
 
-Default: `json`.
+If multiple method strings are provided, they will act as fallbacks.
+
+[Available methods.](https://developer.mozilla.org/en-US/docs/Web/API/Response#instance_methods)
+
+Default: `['json', 'text']`.
 
 > Change the default with `Fetch.options.defaultRespType`.
 
