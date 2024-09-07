@@ -13,8 +13,6 @@ class Fetch {
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   methods = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH'];
   
-  respTypes = ['json', 'text', 'stream'];
-  
   
   constructor() {
     
@@ -24,36 +22,19 @@ class Fetch {
       
       method = method.toLowerCase();
 
-      // define methods for default resp type
-      this[method] =
-        this.getMethod(
-          method,
-          defaultRespType
-        );
-
-      // define methods for all resp types
-      this.respTypes.forEach(respType => {
-        
-        this[method][respType] =
-          this.getMethod(
-            method,
-            respType
-          );
-        
-      });
+      this[method] = this.getMethod(method);
       
     });
     
   }
   
-  getMethod(method, respType) {
+  getMethod(method) {
     
     method = method.toUpperCase();
     
     return ((resource, options = {}) => {
       
       options.method = method;
-      options.respType = respType;
       
       return this.fetch(resource, options);
       
@@ -81,7 +62,7 @@ class Fetch {
     let resp = await request;
     
     
-    this.setRespBody(resp, options);
+    await this.setRespBody(resp, options);
     
     
     if (options.onlyBody !== false) {
@@ -96,7 +77,7 @@ class Fetch {
   }
 
 
-  setRespBody(resp, options) {
+  async setRespBody(resp, options) {
 
     if (options.respType === 'stream') return;
 
