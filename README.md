@@ -59,7 +59,7 @@ If multiple strings are provided, they'll be used as fallbacks for when parsing 
 
 Default: `['json', 'text']`.
 
-> Change the default with `Fetch.fetchOptions.defaultResponseType`.
+> Change the default with `Fetch.defaults.responseType`.
 
 #### prefix
 
@@ -72,6 +72,8 @@ A prefix to prepend to `resource`.
 Whether only `resp.body` should be returned, instead of the entire response.
 
 Default: `true`.
+
+> Change the default with `Fetch.defaults.onlyBody`.
 
 
 [`fetch`]: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
