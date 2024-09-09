@@ -5,8 +5,9 @@
 
 class Fetch {
   
-  fetchOptions = {
-    defaultResponseType: ['json', 'text']
+  defaults = {
+    responseType: ['json', 'text'],
+    onlyBody: true
   };
   
   
@@ -65,23 +66,25 @@ class Fetch {
     let resp = await request;
     
 
-    if ('responseType' in options) {
+    // set default options
+    for (option in this.defaults) {
 
-      await this.parseRespBody(resp, options.responseType);
+      if (!(option in options)) {
 
-    } else {
-      
-      await this.parseRespBody(resp, this.fetchOptions.defaultResponseType);
-      
+        options[option] = this.defaults[option];
+
+      }
+
     }
-    
-    
-    if (options.onlyBody !== false) {
 
+    
+    await this.parseRespBody(resp, options.responseType);
+
+    if (options.onlyBody) {
+      
       return resp.body;
       
     }
-    
     
     return resp;
     
