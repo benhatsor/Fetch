@@ -65,7 +65,7 @@ class Fetch {
     
 
     // set default options
-    for (option in this.defaults) {
+    for (const option in this.defaults) {
 
       if (!(option in options)) {
 
