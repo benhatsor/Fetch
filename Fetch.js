@@ -47,14 +47,12 @@ class Fetch {
     const { isString, coerceValueToString } = this.util;
     
 
-    let prefix = options.prefix;
-    
     if ('prefix' in options &&
-        isString(prefix) &&
+        isString(options.prefix) &&
         isString(resource)) {
   
       resource = coerceValueToString(resource);
-      prefix = coerceValueToString(prefix);
+      const prefix = coerceValueToString(options.prefix);
       
       resource = prefix + resource;
       
