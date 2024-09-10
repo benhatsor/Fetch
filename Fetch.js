@@ -42,7 +42,7 @@ class Fetch {
   }
   
   
-  async fetch(resource, options) {
+  async fetch(resource, options = {}) {
   
     const { isString, coerceValueToString } = this.util;
     
