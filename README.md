@@ -19,7 +19,7 @@ const resp = await Fetch.get('https://api.example.com/movies');
 ```JS
 const resp = await Fetch.get('/movies/1/desc', {
   prefix: 'https://api.example.com',
-  responseType: 'text',
+  respType: 'text',
   onlyBody: false
 });
 
@@ -48,7 +48,7 @@ A lowercased [HTTP request method].
 
 [`fetch` options], plus:
 
-#### responseType
+#### respType
 
 [Available types] (plus `stream`).
 
@@ -59,7 +59,7 @@ If multiple strings are provided, they'll be used as fallbacks for when parsing 
 
 Default: `['json', 'text']`.
 
-> Change the default with `Fetch.defaults.responseType`.
+> Change the default with `Fetch.defaults.respType`.
 
 #### prefix
 
