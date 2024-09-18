@@ -7,7 +7,8 @@ class Fetch {
   
   defaults = {
     respType: ['json', 'text'],
-    onlyBody: true
+    onlyBody: true,
+    prefix: ''
   };
   
   
@@ -45,10 +46,21 @@ class Fetch {
   async fetch(resource, options = {}) {
   
     const { isString, coerceValueToString } = this.util;
-    
 
-    if ('prefix' in options &&
-        isString(options.prefix) &&
+
+    // set default options
+    for (const option in this.defaults) {
+
+      if (!(option in options)) {
+
+        options[option] = this.defaults[option];
+
+      }
+
+    }
+    
+    
+    if (isString(options.prefix) &&
         isString(resource)) {
   
       resource = coerceValueToString(resource);
@@ -63,18 +75,6 @@ class Fetch {
     
     let resp = await request;
     
-
-    // set default options
-    for (const option in this.defaults) {
-
-      if (!(option in options)) {
-
-        options[option] = this.defaults[option];
-
-      }
-
-    }
-
     
     await this.parseRespBody(resp, options.respType);
 
