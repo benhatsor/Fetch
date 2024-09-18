@@ -67,6 +67,10 @@ A prefix to prepend to `resource`.
 
 > Will only be prepended if `resource` and `prefix` are both either strings or [string-coercible].
 
+Default: `''`.
+
+> Change the default with `Fetch.defaults.prefix`.
+
 #### onlyBody
 
 Whether only `resp.body` should be returned, instead of the entire response.
