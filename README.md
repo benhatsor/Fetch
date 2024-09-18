@@ -50,7 +50,7 @@ A lowercased [HTTP request method].
 
 #### responseType
 
-[Available types] (plus `readableStream`).
+[Available types] (plus `stream`).
 
 Attempts to parse `resp` to the provided type(s), then sets `resp.body` to the result.
 
