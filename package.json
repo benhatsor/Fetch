@@ -1,11 +1,11 @@
 {
   "name": "better-fetch",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Upgraded fetch.",
   "main": "Fetch.min.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benhatsor/Fetch.git"
+    "url": "git+https://github.com/barhatsor/Fetch.git"
   },
   "keywords": [
     "fetch",
@@ -13,10 +13,10 @@
     "http",
     "request"
   ],
-  "author": "benhatsor",
+  "author": "barhatsor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/benhatsor/Fetch/issues"
+    "url": "https://github.com/barhatsor/Fetch/issues"
   },
-  "homepage": "https://github.com/benhatsor/Fetch#readme"
+  "homepage": "https://github.com/barhatsor/Fetch#readme"
 }
